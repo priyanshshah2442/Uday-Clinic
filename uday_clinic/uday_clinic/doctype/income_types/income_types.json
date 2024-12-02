@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:income_type",
+ "creation": "2024-11-27 17:19:46.791695",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_0hk6",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent",
+  "parent_income_types",
+  "income_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_0hk6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Income Types"
+  },
+  {
+   "fieldname": "parent_income_types",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Income Types",
+   "options": "Income Types"
+  },
+  {
+   "fieldname": "income_type",
+   "fieldtype": "Data",
+   "label": "Income Type",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2024-11-27 18:01:01.324945",
+ "modified_by": "Administrator",
+ "module": "Uday Clinic",
+ "name": "Income Types",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_income_types",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

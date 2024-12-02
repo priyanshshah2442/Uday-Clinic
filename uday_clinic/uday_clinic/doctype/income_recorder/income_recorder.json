@@ -1,0 +1,91 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{party}-{date}-{##}",
+ "creation": "2024-11-27 17:28:14.104851",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "party",
+  "date",
+  "column_break_kuvu",
+  "from_receipt_number",
+  "to_receipt_number",
+  "section_break_njoy",
+  "sources",
+  "total"
+ ],
+ "fields": [
+  {
+   "fieldname": "party",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Party",
+   "options": "Party",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_kuvu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_receipt_number",
+   "fieldtype": "Data",
+   "label": "From Receipt Number"
+  },
+  {
+   "fieldname": "to_receipt_number",
+   "fieldtype": "Data",
+   "label": "To Receipt Number"
+  },
+  {
+   "fieldname": "section_break_njoy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sources",
+   "fieldtype": "Table",
+   "label": "Sources",
+   "options": "Income Recorder Items",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "non_negative": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-27 18:24:06.801444",
+ "modified_by": "Administrator",
+ "module": "Uday Clinic",
+ "name": "Income Recorder",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
