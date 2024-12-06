@@ -16,7 +16,7 @@ const MONTHS = [
 ];
 const current_month = MONTHS[new Date().getMonth()];
 
-frappe.query_reports["Income"] = {
+frappe.query_reports["Income Expense"] = {
 	filters: [
 		{
 			fieldname: "party",

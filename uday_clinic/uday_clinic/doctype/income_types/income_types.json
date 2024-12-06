@@ -11,6 +11,7 @@
   "rgt",
   "is_group",
   "old_parent",
+  "income_category",
   "parent_income_types",
   "income_type"
  ],
@@ -60,12 +61,20 @@
    "fieldtype": "Data",
    "label": "Income Type",
    "unique": 1
+  },
+  {
+   "fieldname": "income_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Income Category",
+   "options": "Consultation\nIndoor\nOthers",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2024-11-27 18:01:01.324945",
+ "modified": "2024-12-05 21:49:07.643594",
  "modified_by": "Administrator",
  "module": "Uday Clinic",
  "name": "Income Types",

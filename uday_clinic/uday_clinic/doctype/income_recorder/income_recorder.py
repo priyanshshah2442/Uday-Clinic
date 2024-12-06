@@ -4,13 +4,14 @@
 import frappe
 from frappe.model.document import Document
 from frappe.utils import get_link_to_form
+from frappe.utils.formatters import format_value
 
 
 class IncomeRecorder(Document):
 	def validate(self):
 		self.validate_duplicate_record()
 		self.validate_duplicate_sources()
-		self.validate_numbers()
+		self.validate_amount()
 		self.calculate_total()
 
 	def validate_duplicate_record(self):
@@ -43,10 +44,14 @@ class IncomeRecorder(Document):
 				)
 			sources_map[(row.type, row.sub_type or "")] = row.idx
 
-	def validate_numbers(self):
-		for row in self.sources:
-			if row.number <= 0:
-				frappe.throw(f"Row: {row.idx} Number must be greater than 0")
-
 	def calculate_total(self):
 		self.total = sum(d.amount for d in self.sources)
+
+	def validate_amount(self):
+		for row in self.sources:
+			if row.amount <= 0:
+				frappe.throw(
+					"Row: #{} Amount must be greater than {}".format(
+						row.idx, format_value(0, {"fieldtype": "Currency"})
+					)
+				)

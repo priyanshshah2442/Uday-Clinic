@@ -3,7 +3,6 @@
 
 import frappe
 from frappe.query_builder.functions import (
-	CurDate,
 	Extract,
 	Sum,
 )
@@ -63,6 +62,11 @@ def get_columns():
 
 
 def get_data(filters):
+	result = _get_data(filters)
+	return list(process_result(result).values())
+
+
+def _get_data(filters):
 	EXPENSE_RECORDER = frappe.qb.DocType("Expense Recorder")
 	EXPENSE_RECORDER_ITEMS = frappe.qb.DocType("Expense Recorder Items")
 	start_date, end_date = get_start_and_end_date(
@@ -89,8 +93,11 @@ def get_data(filters):
 		.orderby(Extract("year", EXPENSE_RECORDER.date).as_("year"), order=Order.desc)
 		.orderby(Extract("month", EXPENSE_RECORDER.date).as_("month"), order=Order.desc)
 	)
-	result = query.run(as_dict=True)
 
+	return query.run(as_dict=True)
+
+
+def process_result(result):
 	data = {}
 
 	for row in result:
@@ -101,6 +108,7 @@ def get_data(filters):
 				"month": MONTHS_MAP[month],
 				"year": year,
 				"total": 0,
+				"is_expense": True,
 			}
 
 		data[(month, year)].update(
@@ -110,7 +118,7 @@ def get_data(filters):
 			}
 		)
 
-	return list(data.values())
+	return data
 
 
 def get_start_and_end_date(month, year, no_of_months):

@@ -1,0 +1,25 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "Monthly Income",
+   "width": "Half"
+  },
+  {
+   "chart": "Income Expense Analysis",
+   "width": "Half"
+  }
+ ],
+ "creation": "2024-12-05 22:26:11.758200",
+ "dashboard_name": "HSS Dahboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2024-12-05 23:01:18.139550",
+ "modified_by": "Administrator",
+ "module": "Uday Clinic",
+ "name": "HSS Dahboard",
+ "owner": "Administrator"
+}
