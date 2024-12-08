@@ -62,6 +62,11 @@ def get_columns():
 
 
 def get_data(filters):
+	if not filters.no_of_months:
+		filters.no_of_months = 6
+	if not filters.year:
+		filters.year = getdate().strftime("%Y")
+
 	income_data = get_income_data(filters)
 	expense_data = get_expense_data(filters)
 

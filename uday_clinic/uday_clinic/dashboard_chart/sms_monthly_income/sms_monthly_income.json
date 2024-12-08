@@ -1,0 +1,33 @@
+{
+ "chart_name": "SMS Monthly Income",
+ "chart_type": "Report",
+ "creation": "2024-12-07 23:14:48.586788",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "dynamic_filters_json": "{\"month\":\"new Date().toLocaleString('default', { month: 'long' })\",\"year\":\"new Date().getFullYear()\",\"no_of_months\":\"6\"}",
+ "filters_json": "{\"party\":\"SMS\"}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "modified": "2024-12-08 14:24:05.547729",
+ "modified_by": "Administrator",
+ "module": "Uday Clinic",
+ "name": "SMS Monthly Income",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "report_name": "Income",
+ "roles": [],
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "x_field": "month",
+ "y_axis": [
+  {
+   "color": "#19b330",
+   "y_field": "total"
+  }
+ ]
+}

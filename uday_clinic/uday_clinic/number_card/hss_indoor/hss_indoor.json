@@ -1,0 +1,22 @@
+{
+ "creation": "2024-12-07 18:00:25.510125",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "filters_json": "{\"party\":\"HSS\",\"month\":\"December\",\"year\":\"2024\",\"no_of_months\":\"6\"}",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "label": "HSS Indoor",
+ "modified": "2024-12-07 18:00:25.530111",
+ "modified_by": "Administrator",
+ "module": "Uday Clinic",
+ "name": "HSS Indoor",
+ "owner": "Administrator",
+ "report_field": "indoor",
+ "report_function": "Sum",
+ "report_name": "Income",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Report"
+}

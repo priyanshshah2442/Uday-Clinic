@@ -10,12 +10,18 @@ frappe.ui.form.on("Income Recorder", {
 				},
 			};
 		});
+		frm.fields_dict.date.datepicker.update({
+			maxDate: new Date(),
+		});
 	},
 });
 
 frappe.ui.form.on("Income Recorder Items", {
 	amount(frm, cdt, cdn) {
 		set_total_amount(frm);
+	},
+	type(frm, cdt, cdn) {
+		frappe.model.set_value(cdt, cdn, "sub_type", "");
 	},
 });
 

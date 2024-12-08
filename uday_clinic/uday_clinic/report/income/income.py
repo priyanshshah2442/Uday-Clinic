@@ -1,5 +1,6 @@
 # Copyright (c) 2024, Priyansh Shah and contributors
 # For license information, please see license.txt
+from datetime import datetime
 
 import frappe
 from frappe.query_builder.functions import (
@@ -65,8 +66,12 @@ def _get_data(filters):
 	INCOME_RECORDER = frappe.qb.DocType("Income Recorder")
 	INCOME_RECORDER_ITEMS = frappe.qb.DocType("Income Recorder Items")
 	start_date, end_date = get_start_and_end_date(
-		REVERSE_MONTHS_MAP[filters.month], int(filters.year), int(filters.no_of_months)
+		REVERSE_MONTHS_MAP.get(filters.month),
+		int(filters.year or datetime.now().year),
+		int(filters.no_of_months or 6),
 	)
+	if not start_date or not end_date:
+		return []
 
 	query = (
 		frappe.qb.from_(INCOME_RECORDER)
@@ -118,6 +123,9 @@ def process_result(result):
 
 
 def get_start_and_end_date(month, year, no_of_months):
+	if not month:
+		return None, None
+
 	no_of_months -= 1
 	if month - no_of_months <= 0:
 		start_month = month - no_of_months + 12

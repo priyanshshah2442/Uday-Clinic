@@ -1,6 +1,6 @@
 // Copyright (c) 2024, Priyansh Shah and contributors
 // For license information, please see license.txt
-const MONTHS = [
+const MONTHS_FOR_INCOME = [
 	"January",
 	"February",
 	"March",
@@ -14,7 +14,7 @@ const MONTHS = [
 	"November",
 	"December",
 ];
-const current_month = MONTHS[new Date().getMonth()];
+const current_month = MONTHS_FOR_INCOME[new Date().getMonth()];
 
 frappe.query_reports["Income"] = {
 	filters: [
@@ -29,7 +29,7 @@ frappe.query_reports["Income"] = {
 			fieldname: "month",
 			label: __("Month"),
 			fieldtype: "Select",
-			options: MONTHS,
+			options: MONTHS_FOR_INCOME,
 			reqd: 1,
 			default: current_month,
 		},

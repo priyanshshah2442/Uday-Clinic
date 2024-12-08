@@ -12,22 +12,18 @@
   {
    "chart": "HSS Expense",
    "width": "Half"
-  },
-  {
-   "chart": "HSS Income Expense Analysis",
-   "width": "Half"
   }
  ],
  "creation": "2024-12-05 22:26:11.758200",
- "dashboard_name": "HSS Dahboard",
+ "dashboard_name": "HSS",
  "docstatus": 0,
  "doctype": "Dashboard",
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "modified": "2024-12-07 18:20:17.552719",
+ "modified": "2024-12-07 18:22:41.565154",
  "modified_by": "Administrator",
  "module": "Uday Clinic",
- "name": "HSS Dahboard",
+ "name": "HSS",
  "owner": "Administrator"
 }
