@@ -9,7 +9,6 @@ from frappe.utils import get_link_to_form
 class ExpenseRecorder(Document):
 	def validate(self):
 		self.validate_duplicate_record()
-		self.validate_duplicate_types()
 		self.validate_amounts()
 		self.calculate_total()
 
@@ -29,13 +28,6 @@ class ExpenseRecorder(Document):
 					frappe.bold(self.date),
 				)
 			)
-
-	def validate_duplicate_types(self):
-		types_map = {}
-		for row in self.records:
-			if row.type in types_map:
-				frappe.throw(f"Row #{row.idx}: {row.type} already added at Row: {types_map[row.type]}")
-			types_map[row.type] = row.idx
 
 	def validate_amounts(self):
 		for row in self.records:

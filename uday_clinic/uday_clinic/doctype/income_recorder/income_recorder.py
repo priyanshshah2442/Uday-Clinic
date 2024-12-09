@@ -10,7 +10,6 @@ from frappe.utils.formatters import format_value
 class IncomeRecorder(Document):
 	def validate(self):
 		self.validate_duplicate_record()
-		self.validate_duplicate_sources()
 		self.validate_amount()
 		self.calculate_total()
 
@@ -30,19 +29,6 @@ class IncomeRecorder(Document):
 					frappe.bold(self.date),
 				)
 			)
-
-	def validate_duplicate_sources(self):
-		sources_map = {}
-		for row in self.sources:
-			if (row.type, row.sub_type or "") in sources_map:
-				main_msg_subj = f"{row.type} and {row.sub_type}" if row.sub_type else row.type
-				frappe.throw(
-					"{} already added at Row: {}".format(
-						main_msg_subj,
-						frappe.bold(sources_map[(row.type, row.sub_type or "")]),
-					)
-				)
-			sources_map[(row.type, row.sub_type or "")] = row.idx
 
 	def calculate_total(self):
 		self.total = sum(d.amount for d in self.sources)
