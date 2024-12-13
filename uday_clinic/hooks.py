@@ -5,6 +5,8 @@ app_description = "Income Expense Tracker"
 app_email = "priyanshshah2442@gmail.com"
 app_license = "mit"
 
+
+boot_session = "uday_clinic.uday_clinic.boot.set_bootinfo"
 # Apps
 # ------------------
 
@@ -244,4 +246,3 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-
