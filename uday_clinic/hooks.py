@@ -6,7 +6,6 @@ app_email = "priyanshshah2442@gmail.com"
 app_license = "mit"
 
 
-boot_session = "uday_clinic.uday_clinic.boot.set_bootinfo"
 # Apps
 # ------------------
 

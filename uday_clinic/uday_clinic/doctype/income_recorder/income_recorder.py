@@ -41,3 +41,15 @@ class IncomeRecorder(Document):
 						row.idx, format_value(0, {"fieldtype": "Currency"})
 					)
 				)
+
+
+@frappe.whitelist()
+def get_options():
+	options = {}
+	options["consultation_types"] = frappe.get_all("Consultation Types", pluck="name")
+	options["delivery_types"] = frappe.get_all("Delivery Types", pluck="name")
+	options["operation_types"] = frappe.get_all("Operation Types", pluck="name")
+	options["other_income_types"] = frappe.get_all("Other Income Types", pluck="name")
+	options["indoor_income_types"] = frappe.get_all("Indoor Income Types", pluck="name")
+
+	return options

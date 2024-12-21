@@ -1,5 +1,6 @@
 // Copyright (c) 2024, Priyansh Shah and contributors
 // For license information, please see license.txt
+
 const MONTHS = [
 	"January",
 	"February",
@@ -14,9 +15,10 @@ const MONTHS = [
 	"November",
 	"December",
 ];
+
 const current_month = MONTHS[new Date().getMonth()];
 
-frappe.query_reports["Income"] = {
+frappe.query_reports["Operation"] = {
 	filters: [
 		{
 			fieldname: "party",

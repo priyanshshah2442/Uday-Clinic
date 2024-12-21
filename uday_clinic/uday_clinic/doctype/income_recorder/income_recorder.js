@@ -42,30 +42,36 @@ function set_total_amount(frm) {
 	frm.set_value("total", total_amount);
 }
 
-function set_sub_type_options(frm, cdt, cdn) {
+async function set_sub_type_options(frm, cdt, cdn) {
 	const doc = frappe.get_doc(cdt, cdn);
 	if (!doc.type && cdt === "Income Recorder Items") return;
+	let options_map = await frappe.xcall(
+		"uday_clinic.uday_clinic.doctype.income_recorder.income_recorder.get_options"
+	);
 
 	let options;
 	if (doc.type === "Consultation" || cdt === "Income Recorder") {
-		options = frappe.boot.consultation_types;
+		options = options_map["consultation_types"];
 	} else if (doc.type === "Others") {
-		options = frappe.boot.other_income_types;
+		options = options_map["other_income_types"];
 	} else if (doc.type === "Indoor") {
-		options = frappe.boot.indoor_income_types;
+		options = options_map["indoor_income_types"];
 	}
 	frm.fields_dict.sources.grid.update_docfield_property("sub_type", "options", options);
 }
 
-function set_method_options(frm, cdt, cdn) {
+async function set_method_options(frm, cdt, cdn) {
 	const doc = frappe.get_doc(cdt, cdn);
 	if (!doc.type && cdt === "Income Recorder Items") return;
+	let options_map = await frappe.xcall(
+		"uday_clinic.uday_clinic.doctype.income_recorder.income_recorder.get_options"
+	);
 
 	let options;
 	if (doc.sub_type === "Operation" || cdt === "Income Recorder") {
-		options = frappe.boot.operation_types;
+		options = options_map["operation_types"];
 	} else if (doc.sub_type === "Delivery") {
-		options = frappe.boot.delivery_types;
+		options = options_map["delivery_types"];
 	} else {
 		options = [""];
 	}

@@ -1,5 +1,6 @@
 // Copyright (c) 2024, Priyansh Shah and contributors
 // For license information, please see license.txt
+
 const MONTHS = [
 	"January",
 	"February",
@@ -16,7 +17,7 @@ const MONTHS = [
 ];
 const current_month = MONTHS[new Date().getMonth()];
 
-frappe.query_reports["Income"] = {
+frappe.query_reports["Delivery"] = {
 	filters: [
 		{
 			fieldname: "party",
@@ -48,6 +49,14 @@ frappe.query_reports["Income"] = {
 			options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
 			reqd: 1,
 			default: "6",
+		},
+		{
+			fieldname: "group_by",
+			label: __("Group By"),
+			fieldtype: "Select",
+			options: ["Method", "Caste"],
+			reqd: 1,
+			default: "Method",
 		},
 	],
 };
